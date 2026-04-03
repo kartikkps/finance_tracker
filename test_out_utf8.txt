@@ -1,0 +1,580 @@
+﻿npx : FAIL tests/api.test.ts
+At line:1 char:1
++ npx jest > test_out.txt 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: 
+    (FAIL tests/api.test.ts:String) [], Re  
+  moteException
+    + FullyQualifiedErrorId : NativeCommand 
+   Error
+ 
+  ΓùÅ Test suite failed to run
+
+    [96mtests/api.test.ts[0m:[93m9[0m:[
+93m1[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'beforeAll'.
+
+    [7m9[0m beforeAll(async () => {
+    [7m [0m [91m~~~~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m27[0m:
+[93m1[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'afterAll'.
+
+    [7m27[0m afterAll(async () => {
+    [7m  [0m [91m~~~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m31[0m:
+[93m1[0m - [91merror[0m[90m TS2593: 
+[0mCannot find name 'describe'. Do you 
+need to install type definitions for a test 
+runner? Try `npm i --save-dev @types/jest` 
+or `npm i --save-dev @types/mocha` and then 
+add 'jest' or 'mocha' to the types field in 
+your tsconfig.
+
+    [7m31[0m describe('POST 
+/api/auth/register', () => {
+    [7m  [0m [91m~~~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m32[0m:
+[93m3[0m - [91merror[0m[90m TS2593: 
+[0mCannot find name 'it'. Do you need to 
+install type definitions for a test runner? 
+Try `npm i --save-dev @types/jest` or `npm 
+i --save-dev @types/mocha` and then add 
+'jest' or 'mocha' to the types field in 
+your tsconfig.
+
+    [7m32[0m   it('should register a new 
+user successfully', async () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/api.test.ts[0m:[93m38[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m38[0m     
+expect(res.status).toBe(201);
+    [7m  [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m39[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m39[0m     
+expect(res.body.success).toBe(true);
+    [7m  [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m40[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m40[0m     
+expect(res.body.data).toHaveProperty('id');
+    [7m  [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m41[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m41[0m     
+expect(res.body.data.role).toBe('VIEWER');
+    [7m  [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m44[0m:
+[93m3[0m - [91merror[0m[90m TS2593: 
+[0mCannot find name 'it'. Do you need to 
+install type definitions for a test runner? 
+Try `npm i --save-dev @types/jest` or `npm 
+i --save-dev @types/mocha` and then add 
+'jest' or 'mocha' to the types field in 
+your tsconfig.
+
+    [7m44[0m   it('should return 409 for 
+duplicate email', async () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/api.test.ts[0m:[93m50[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m50[0m     
+expect(res.status).toBe(409);
+    [7m  [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m51[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m51[0m     
+expect(res.body.success).toBe(false);
+    [7m  [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m54[0m:
+[93m3[0m - [91merror[0m[90m TS2593: 
+[0mCannot find name 'it'. Do you need to 
+install type definitions for a test runner? 
+Try `npm i --save-dev @types/jest` or `npm 
+i --save-dev @types/mocha` and then add 
+'jest' or 'mocha' to the types field in 
+your tsconfig.
+
+    [7m54[0m   it('should return 400 for 
+weak password', async () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/api.test.ts[0m:[93m60[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m60[0m     
+expect(res.status).toBe(400);
+    [7m  [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m61[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m61[0m     
+expect(res.body.errors).toBeDefined();
+    [7m  [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m65[0m:
+[93m1[0m - [91merror[0m[90m TS2593: 
+[0mCannot find name 'describe'. Do you 
+need to install type definitions for a test 
+runner? Try `npm i --save-dev @types/jest` 
+or `npm i --save-dev @types/mocha` and then 
+add 'jest' or 'mocha' to the types field in 
+your tsconfig.
+
+    [7m65[0m describe('POST 
+/api/auth/login', () => {
+    [7m  [0m [91m~~~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m66[0m:
+[93m3[0m - [91merror[0m[90m TS2593: 
+[0mCannot find name 'it'. Do you need to 
+install type definitions for a test runner? 
+Try `npm i --save-dev @types/jest` or `npm 
+i --save-dev @types/mocha` and then add 
+'jest' or 'mocha' to the types field in 
+your tsconfig.
+
+    [7m66[0m   it('should return token 
+for valid credentials', async () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/api.test.ts[0m:[93m70[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m70[0m     
+expect(res.status).toBe(200);
+    [7m  [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m71[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m71[0m     
+expect(res.body.data.token).toBeDefined();
+    [7m  [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m72[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m72[0m     expect(res.body.data.user
+.role).toBe('ADMIN');
+    [7m  [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m75[0m:
+[93m3[0m - [91merror[0m[90m TS2593: 
+[0mCannot find name 'it'. Do you need to 
+install type definitions for a test runner? 
+Try `npm i --save-dev @types/jest` or `npm 
+i --save-dev @types/mocha` and then add 
+'jest' or 'mocha' to the types field in 
+your tsconfig.
+
+    [7m75[0m   it('should return 401 for 
+wrong password', async () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/api.test.ts[0m:[93m79[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m79[0m     
+expect(res.status).toBe(401);
+    [7m  [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m82[0m:
+[93m3[0m - [91merror[0m[90m TS2593: 
+[0mCannot find name 'it'. Do you need to 
+install type definitions for a test runner? 
+Try `npm i --save-dev @types/jest` or `npm 
+i --save-dev @types/mocha` and then add 
+'jest' or 'mocha' to the types field in 
+your tsconfig.
+
+    [7m82[0m   it('should return 401 for 
+non-existent email', async () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/api.test.ts[0m:[93m86[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m86[0m     
+expect(res.status).toBe(401);
+    [7m  [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m90[0m:
+[93m1[0m - [91merror[0m[90m TS2593: 
+[0mCannot find name 'describe'. Do you 
+need to install type definitions for a test 
+runner? Try `npm i --save-dev @types/jest` 
+or `npm i --save-dev @types/mocha` and then 
+add 'jest' or 'mocha' to the types field in 
+your tsconfig.
+
+    [7m90[0m describe('GET /api/auth/me', 
+() => {
+    [7m  [0m [91m~~~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m91[0m:
+[93m3[0m - [91merror[0m[90m TS2593: 
+[0mCannot find name 'it'. Do you need to 
+install type definitions for a test runner? 
+Try `npm i --save-dev @types/jest` or `npm 
+i --save-dev @types/mocha` and then add 
+'jest' or 'mocha' to the types field in 
+your tsconfig.
+
+    [7m91[0m   it('should return profile 
+for authenticated user', async () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/api.test.ts[0m:[93m95[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m95[0m     
+expect(res.status).toBe(200);
+    [7m  [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m96[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m96[0m     expect(res.body.data.emai
+l).toBe('admin@acme.com');
+    [7m  [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m99[0m:
+[93m3[0m - [91merror[0m[90m TS2593: 
+[0mCannot find name 'it'. Do you need to 
+install type definitions for a test runner? 
+Try `npm i --save-dev @types/jest` or `npm 
+i --save-dev @types/mocha` and then add 
+'jest' or 'mocha' to the types field in 
+your tsconfig.
+
+    [7m99[0m   it('should return 401 
+without token', async () => {
+    [7m  [0m [91m  ~~[0m
+    [96mtests/api.test.ts[0m:[93m101[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m101[0m     
+expect(res.status).toBe(401);
+    [7m   [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m105[0m:
+[93m1[0m - [91merror[0m[90m TS2593: 
+[0mCannot find name 'describe'. Do you 
+need to install type definitions for a test 
+runner? Try `npm i --save-dev @types/jest` 
+or `npm i --save-dev @types/mocha` and then 
+add 'jest' or 'mocha' to the types field in 
+your tsconfig.
+
+    [7m105[0m describe('RBAC ΓÇö User 
+Management', () => {
+    [7m   [0m [91m~~~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m106[0m:
+[93m3[0m - [91merror[0m[90m TS2593: 
+[0mCannot find name 'it'. Do you need to 
+install type definitions for a test runner? 
+Try `npm i --save-dev @types/jest` or `npm 
+i --save-dev @types/mocha` and then add 
+'jest' or 'mocha' to the types field in 
+your tsconfig.
+
+    [7m106[0m   it('Admin can list 
+users', async () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/api.test.ts[0m:[93m110[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m110[0m     
+expect(res.status).toBe(200);
+    [7m   [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m111[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m111[0m     expect(Array.isArray(res
+.body.data)).toBe(true);
+    [7m   [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m114[0m:
+[93m3[0m - [91merror[0m[90m TS2593: 
+[0mCannot find name 'it'. Do you need to 
+install type definitions for a test runner? 
+Try `npm i --save-dev @types/jest` or `npm 
+i --save-dev @types/mocha` and then add 
+'jest' or 'mocha' to the types field in 
+your tsconfig.
+
+    [7m114[0m   it('Analyst cannot list 
+users (403)', async () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/api.test.ts[0m:[93m118[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m118[0m     
+expect(res.status).toBe(403);
+    [7m   [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m121[0m:
+[93m3[0m - [91merror[0m[90m TS2593: 
+[0mCannot find name 'it'. Do you need to 
+install type definitions for a test runner? 
+Try `npm i --save-dev @types/jest` or `npm 
+i --save-dev @types/mocha` and then add 
+'jest' or 'mocha' to the types field in 
+your tsconfig.
+
+    [7m121[0m   it('Viewer cannot list 
+users (403)', async () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/api.test.ts[0m:[93m125[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m125[0m     
+expect(res.status).toBe(403);
+    [7m   [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m129[0m:
+[93m1[0m - [91merror[0m[90m TS2593: 
+[0mCannot find name 'describe'. Do you 
+need to install type definitions for a test 
+runner? Try `npm i --save-dev @types/jest` 
+or `npm i --save-dev @types/mocha` and then 
+add 'jest' or 'mocha' to the types field in 
+your tsconfig.
+
+    [7m129[0m describe('Financial 
+Records', () => {
+    [7m   [0m [91m~~~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m132[0m:
+[93m3[0m - [91merror[0m[90m TS2593: 
+[0mCannot find name 'it'. Do you need to 
+install type definitions for a test runner? 
+Try `npm i --save-dev @types/jest` or `npm 
+i --save-dev @types/mocha` and then add 
+'jest' or 'mocha' to the types field in 
+your tsconfig.
+
+    [7m132[0m   it('Analyst can create a 
+record', async () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/api.test.ts[0m:[93m137[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m137[0m     
+expect(res.status).toBe(201);
+    [7m   [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m138[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m138[0m     
+expect(res.body.data).toHaveProperty('id');
+    [7m   [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m142[0m:
+[93m3[0m - [91merror[0m[90m TS2593: 
+[0mCannot find name 'it'. Do you need to 
+install type definitions for a test runner? 
+Try `npm i --save-dev @types/jest` or `npm 
+i --save-dev @types/mocha` and then add 
+'jest' or 'mocha' to the types field in 
+your tsconfig.
+
+    [7m142[0m   it('Viewer cannot create 
+a record (403)', async () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/api.test.ts[0m:[93m147[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m147[0m     
+expect(res.status).toBe(403);
+    [7m   [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m150[0m:
+[93m3[0m - [91merror[0m[90m TS2593: 
+[0mCannot find name 'it'. Do you need to 
+install type definitions for a test runner? 
+Try `npm i --save-dev @types/jest` or `npm 
+i --save-dev @types/mocha` and then add 
+'jest' or 'mocha' to the types field in 
+your tsconfig.
+
+    [7m150[0m   it('All roles can list 
+records', async () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/api.test.ts[0m:[93m154[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m154[0m     
+expect(res.status).toBe(200);
+    [7m   [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m155[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m155[0m     expect(Array.isArray(res
+.body.data)).toBe(true);
+    [7m   [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m158[0m:
+[93m3[0m - [91merror[0m[90m TS2593: 
+[0mCannot find name 'it'. Do you need to 
+install type definitions for a test runner? 
+Try `npm i --save-dev @types/jest` or `npm 
+i --save-dev @types/mocha` and then add 
+'jest' or 'mocha' to the types field in 
+your tsconfig.
+
+    [7m158[0m   it('Viewer cannot delete 
+a record (403)', async () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/api.test.ts[0m:[93m162[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m162[0m     
+expect(res.status).toBe(403);
+    [7m   [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m165[0m:
+[93m3[0m - [91merror[0m[90m TS2593: 
+[0mCannot find name 'it'. Do you need to 
+install type definitions for a test runner? 
+Try `npm i --save-dev @types/jest` or `npm 
+i --save-dev @types/mocha` and then add 
+'jest' or 'mocha' to the types field in 
+your tsconfig.
+
+    [7m165[0m   it('Admin can delete a 
+record', async () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/api.test.ts[0m:[93m169[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m169[0m     
+expect(res.status).toBe(200);
+    [7m   [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m173[0m:
+[93m1[0m - [91merror[0m[90m TS2593: 
+[0mCannot find name 'describe'. Do you 
+need to install type definitions for a test 
+runner? Try `npm i --save-dev @types/jest` 
+or `npm i --save-dev @types/mocha` and then 
+add 'jest' or 'mocha' to the types field in 
+your tsconfig.
+
+    [7m173[0m describe('Dashboard', () => 
+{
+    [7m   [0m [91m~~~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m174[0m:
+[93m3[0m - [91merror[0m[90m TS2593: 
+[0mCannot find name 'it'. Do you need to 
+install type definitions for a test runner? 
+Try `npm i --save-dev @types/jest` or `npm 
+i --save-dev @types/mocha` and then add 
+'jest' or 'mocha' to the types field in 
+your tsconfig.
+
+    [7m174[0m   it('All roles can view 
+summary', async () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/api.test.ts[0m:[93m179[0m:
+[93m7[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m179[0m       
+expect(res.status).toBe(200);
+    [7m   [0m [91m      ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m180[0m:
+[93m7[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m180[0m       expect(res.body.data).
+toHaveProperty('totalIncome');
+    [7m   [0m [91m      ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m181[0m:
+[93m7[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m181[0m       expect(res.body.data).
+toHaveProperty('netBalance');
+    [7m   [0m [91m      ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m185[0m:
+[93m3[0m - [91merror[0m[90m TS2593: 
+[0mCannot find name 'it'. Do you need to 
+install type definitions for a test runner? 
+Try `npm i --save-dev @types/jest` or `npm 
+i --save-dev @types/mocha` and then add 
+'jest' or 'mocha' to the types field in 
+your tsconfig.
+
+    [7m185[0m   it('Viewer cannot access 
+trends (403)', async () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/api.test.ts[0m:[93m189[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m189[0m     
+expect(res.status).toBe(403);
+    [7m   [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m192[0m:
+[93m3[0m - [91merror[0m[90m TS2593: 
+[0mCannot find name 'it'. Do you need to 
+install type definitions for a test runner? 
+Try `npm i --save-dev @types/jest` or `npm 
+i --save-dev @types/mocha` and then add 
+'jest' or 'mocha' to the types field in 
+your tsconfig.
+
+    [7m192[0m   it('Analyst can access 
+trends', async () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/api.test.ts[0m:[93m196[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m196[0m     
+expect(res.status).toBe(200);
+    [7m   [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m199[0m:
+[93m3[0m - [91merror[0m[90m TS2593: 
+[0mCannot find name 'it'. Do you need to 
+install type definitions for a test runner? 
+Try `npm i --save-dev @types/jest` or `npm 
+i --save-dev @types/mocha` and then add 
+'jest' or 'mocha' to the types field in 
+your tsconfig.
+
+    [7m199[0m   it('Only Admin can access 
+top-records', async () => {
+    [7m   [0m [91m  ~~[0m
+    [96mtests/api.test.ts[0m:[93m203[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m203[0m     
+expect(adminRes.status).toBe(200);
+    [7m   [0m [91m    ~~~~~~[0m
+    [96mtests/api.test.ts[0m:[93m208[0m:
+[93m5[0m - [91merror[0m[90m TS2304: 
+[0mCannot find name 'expect'.
+
+    [7m208[0m     
+expect(analystRes.status).toBe(403);
+    [7m   [0m [91m    ~~~~~~[0m
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        2.596 s
+Ran all test suites.

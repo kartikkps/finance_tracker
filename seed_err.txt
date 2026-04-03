@@ -1,0 +1,58 @@
+﻿
+> finance-tracker@1.0.0 seed
+> ts-node -P tsconfig.seed.json prisma/seed.ts
+
+≡ƒî▒ Seeding database...
+npm : Γ¥î Seed failed: 
+PrismaClientInitializationError: 
+At line:1 char:1
++ npm run seed 2>&1 | Out-File 
+seed_err.txt -Encoding utf8; 
+Get-Content ...
++ ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecif 
+   ied: (Γ¥î Seed failed...lizationErr  
+  or: :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCom 
+   mandError
+ 
+Invalid `prisma.user.upsert()` 
+invocation in
+C:\Users\karti\Desktop\finance 
+tracker\prisma\seed.ts:11:35
+
+   8 
+   9 const rounds = 12;
+  10 
+ΓåÆ 11 const admin = await 
+prisma.user.upsert(
+Authentication failed against database 
+server at `localhost`, the provided 
+database credentials for `postgres` are 
+not valid.
+
+Please make sure to provide valid 
+database credentials for the database 
+server at `localhost`.
+    at $n.handleRequestError 
+(C:\Users\karti\Desktop\finance tracker\
+node_modules\@prisma\client\runtime\libr
+ary.js:121:7615)
+    at $n.handleAndLogRequestError 
+(C:\Users\karti\Desktop\finance tracker\
+node_modules\@prisma\client\runtime\libr
+ary.js:121:6623)
+    at $n.request 
+(C:\Users\karti\Desktop\finance tracker\
+node_modules\@prisma\client\runtime\libr
+ary.js:121:6307)
+    at async l 
+(C:\Users\karti\Desktop\finance tracker\
+node_modules\@prisma\client\runtime\libr
+ary.js:130:9633)
+    at async main 
+(C:\Users\karti\Desktop\finance 
+tracker\prisma\seed.ts:11:17) {
+  clientVersion: '5.22.0',
+  errorCode: undefined
+}

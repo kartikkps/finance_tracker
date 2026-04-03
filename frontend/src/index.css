@@ -1,0 +1,79 @@
+:root {
+  --bg-primary: #020617;
+  --bg-card: rgba(15, 23, 42, 0.6);
+  --bg-card-hover: rgba(30, 41, 59, 0.8);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --success: #10b981;
+  --danger: #ef4444;
+  --border: rgba(255, 255, 255, 0.1);
+  --glass-blur: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  min-height: 100vh;
+  /* Add a subtle gradient background for aesthetic depth */
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(30, 58, 138, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(15, 23, 42, 1) 0px, transparent 50%);
+  background-attachment: fixed;
+}
+
+/* Base utility classes for Glassmorphism */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Example generic button styled uniquely */
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}

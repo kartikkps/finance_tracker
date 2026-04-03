@@ -1,0 +1,335 @@
+openapi: 3.0.0
+info:
+  title: Finance Tracker API
+  description: Finance Data Processing and Access Control Backend API
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+    description: Local development server
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        message:
+          type: string
+        errors:
+          type: object
+          nullable: true
+
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+        name:
+          type: string
+        role:
+          type: string
+          enum: [VIEWER, ANALYST, ADMIN]
+        createdAt:
+          type: string
+          format: date-time
+
+    Record:
+      type: object
+      properties:
+        id:
+          type: string
+        userId:
+          type: string
+        type:
+          type: string
+          enum: [INCOME, EXPENSE]
+        amount:
+          type: number
+        category:
+          type: string
+        date:
+          type: string
+          format: date-time
+        notes:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+
+security:
+  - bearerAuth: []
+
+paths:
+  /health:
+    get:
+      tags:
+        - Health
+      summary: API Health Check
+      security: []
+      responses:
+        '200':
+          description: OK
+
+  /api/auth/register:
+    post:
+      tags:
+        - Authentication
+      summary: Register a new user
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password, name]
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+                name:
+                  type: string
+      responses:
+        '201':
+          description: User registered successfully
+
+  /api/auth/login:
+    post:
+      tags:
+        - Authentication
+      summary: Login to get JWT
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/User'
+                  token:
+                    type: string
+
+  /api/auth/me:
+    get:
+      tags:
+        - Authentication
+      summary: Get details of the currently logged in user
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/User'
+
+  /api/users:
+    get:
+      tags:
+        - Users
+      summary: List all users (ADMIN only)
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/User'
+
+  /api/users/{id}/role:
+    patch:
+      tags:
+        - Users
+      summary: Change a user's role (ADMIN only)
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [role]
+              properties:
+                role:
+                  type: string
+                  enum: [VIEWER, ANALYST, ADMIN]
+      responses:
+        '200':
+          description: Role updated
+
+  /api/records:
+    get:
+      tags:
+        - Financial Records
+      summary: List financial records
+      parameters:
+        - in: query
+          name: page
+          schema:
+            type: integer
+        - in: query
+          name: limit
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Record'
+                  meta:
+                    type: object
+    post:
+      tags:
+        - Financial Records
+      summary: Create a new financial record
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [type, amount, category, date]
+              properties:
+                type:
+                  type: string
+                  enum: [INCOME, EXPENSE]
+                amount:
+                  type: number
+                category:
+                  type: string
+                date:
+                  type: string
+                  format: date
+                notes:
+                  type: string
+      responses:
+        '201':
+          description: Record created
+  
+  /api/records/{id}:
+    put:
+      tags:
+        - Financial Records
+      summary: Update a record
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  enum: [INCOME, EXPENSE]
+                amount:
+                  type: number
+                category:
+                  type: string
+                date:
+                  type: string
+                  format: date
+                notes:
+                  type: string
+      responses:
+        '200':
+          description: Record updated
+    delete:
+      tags:
+        - Financial Records
+      summary: Delete a record (ADMIN only)
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Record deleted
+
+  /api/dashboard/summary:
+    get:
+      tags:
+        - Dashboard
+      summary: Get generic metrics total income, expense, and balance
+      responses:
+        '200':
+          description: OK
+
+  /api/dashboard/trends:
+    get:
+      tags:
+        - Dashboard
+      summary: Monthly financial trends
+      responses:
+        '200':
+          description: OK
+
+  /api/dashboard/categories:
+    get:
+      tags:
+        - Dashboard
+      summary: Expense/Income categorized breakdown
+      responses:
+        '200':
+          description: OK
+
+  /api/dashboard/top-records:
+    get:
+      tags:
+        - Dashboard
+      summary: Top biggest records (ADMIN only)
+      responses:
+        '200':
+          description: OK
