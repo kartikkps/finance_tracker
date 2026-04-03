@@ -153,12 +153,7 @@ npx prisma studio     # Open Prisma GUI
 
 ## Technical Decisions & Trade-offs
 
-1. **Express.js vs NestJS/Fastify**: Chose Express for its unopinionated simplicity and massive ecosystem. *Trade-off*: Express lacks built-in structure, which was mitigated by strictly enforcing a layered architecture (Controllers -> Services -> DB) to keep the codebase maintainable.
-2. **Prisma ORM vs Raw SQL/TypeORM**: Chose Prisma for its unmatched TypeScript integration and auto-generated data types. *Trade-off*: Prisma can be slightly less performant on highly complex, deeply nested queries compared to Raw SQL. For a standard CRUD finance application, the developer experience and type safety significantly outweigh this limit.
-3. **Stateless JWT over Stateful Sessions**: Used JSON Web Tokens (JWT) for authentication. *Trade-off*: JWTs scale horizontally easily without needing a Redis instance, but immediate token revocation (logout) is harder. This is mitigated by setting a conservative 24h token expiry.
-4. **Zod vs express-validator**: Chose Zod because it allows deriving TypeScript types directly from the validation schemas (DRY principle). *Trade-off*: Small runtime parsing overhead, which is entirely negligible compared to the network layer overhead.
-5. **Database-Level Aggregation for Analytics**: Dashboard charts (e.g., spending trends) are calculated using PostgreSQL aggregations (`SUM()`, `GROUP BY`) rather than fetching raw rows and summing them in Node.js. *Trade-off*: Slightly increases database CPU load, but drastically saves Node.js memory and prevents network bottlenecks.
-6. **Financial Precision (`DECIMAL` vs `FLOAT`)**: Used `Prisma.Decimal` mapped to PostgreSQL `DECIMAL(15,2)`. *Trade-off*: Requires string-to-number mapping in JavaScript rather than using native JS `Number`, but entirely prevents floating-point precision errors which are unacceptable in financial accounting.
+We chose a lightweight, highly-scalable stack built on **Express.js** and **Prisma ORM** to prioritize developer experience and type safety, trading off some of the strict out-of-the-box structure found in heavy frameworks. Auth is handled via **stateless JWTs** (scaling easily without Redis) using 24-hour expirations to balance security. For robust calculations, we used PostgreSQL **DECIMAL(15,2)** to avoid floating-point errors, and performed complex dashboard aggregations directly in the DB—trading a slightly higher database load for vastly improved Node.js memory efficiency. Finally, all network payloads are strictly validated using **Zod** for airtight runtime checks and perfectly inferred TypeScript types.
 
 ## Architecture Notes & Assumptions
 
