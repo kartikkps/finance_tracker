@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: finance-api-docs
+    env: static
+    buildCommand: "mkdir -p public-docs && cp src/docs/swagger.yaml public-docs/"
+    staticPublishPath: public-docs
