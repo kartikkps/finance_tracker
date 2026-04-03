@@ -153,7 +153,7 @@ npx prisma studio     # Open Prisma GUI
 
 ## Technical Decisions & Trade-offs
 
-We chose a lightweight, highly-scalable stack built on **Express.js** and **Prisma ORM** to prioritize developer experience and type safety, trading off some of the strict out-of-the-box structure found in heavy frameworks. Auth is handled via **stateless JWTs** (scaling easily without Redis) using 24-hour expirations to balance security. For robust calculations, we used PostgreSQL **DECIMAL(15,2)** to avoid floating-point errors, and performed complex dashboard aggregations directly in the DB—trading a slightly higher database load for vastly improved Node.js memory efficiency. Finally, all network payloads are strictly validated using **Zod** for airtight runtime checks and perfectly inferred TypeScript types.
+I chose a lightweight, highly-scalable stack built on **Express.js** and **Prisma ORM** to prioritize developer experience and type safety, trading off some of the strict out-of-the-box structure found in heavy frameworks. Auth is handled via **stateless JWTs** (scaling easily without Redis) using 24-hour expirations to balance security. For robust calculations, I used PostgreSQL **DECIMAL(15,2)** to avoid floating-point errors, and performed complex dashboard aggregations directly in the DB—trading a slightly higher database load for vastly improved Node.js memory efficiency. Finally, all network payloads are strictly validated using **Zod** for airtight runtime checks and perfectly inferred TypeScript types.
 
 ## Architecture Notes & Assumptions
 
